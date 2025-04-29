@@ -1,0 +1,86 @@
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:FavoriteMovies.ViewModels"
+    xmlns:ct="clr-namespace:FavoriteMovies.Controls"
+    x:Class="FavoriteMovies.Pages.FavoritePage"
+    Title="FavoritePage">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding LoadDataMoviesCommand}" />
+    </ContentPage.Behaviors>
+
+    <VerticalStackLayout>
+        <Grid>
+            <ct:CustomLoaderControl
+                Message="Este proceso puede tomar unos segundos"
+                MessageSize="30"
+                IsVisible="{Binding IsBusy}" />
+                
+                
+            
+            <CollectionView 
+                ItemsSource="{Binding Favorites}"
+                IsVisible="{Binding IsBusy, Converter={StaticResource invertBoolConverter}}"
+                Margin="10"
+                 HeightRequest="600">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            Stroke="LightGray"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10"
+                            BackgroundColor="White"
+                            Padding="10"
+                            Margin="5">
+                            
+                            
+                            <Grid ColumnDefinitions="0.3*,0.7*">
+                                <Image 
+                                    Grid.Column="0"
+                                    Source="{Binding Poster_Path}"
+                                    Aspect="AspectFill"
+                                    HeightRequest="150"
+                                    WidthRequest="100" />
+
+                                <VerticalStackLayout Grid.Column="1" Spacing="5">
+                                    <Label 
+                                        Text="{Binding Original_Title}" 
+                                        FontAttributes="Bold"
+                                        FontSize="Medium" 
+                                        LineBreakMode="TailTruncation" />
+
+                                    <Label 
+                                        Text="{Binding Overview}" 
+                                        FontSize="Small"
+                                        LineBreakMode="TailTruncation"
+                                        MaxLines="3" />
+
+                                    <HorizontalStackLayout Spacing="10">
+                                        <Label 
+                                            Text="{Binding Release_Date}" 
+                                            FontSize="Small" 
+                                            TextColor="Gray" />
+
+                                        <!-- <Label 
+                                            Text="{Binding Vote_Average, StringFormat='⭐ {0:F1}'}" 
+                                            FontSize="Small" 
+                                            TextColor="Goldenrod" /> -->
+                                            <ct:MovieRatingControl Rating="{Binding UserRating}" />
+
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </Grid>
+    </VerticalStackLayout>
+
+</ContentPage>
