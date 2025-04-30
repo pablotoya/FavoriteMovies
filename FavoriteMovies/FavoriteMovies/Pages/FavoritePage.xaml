@@ -5,7 +5,8 @@
     xmlns:vm="clr-namespace:FavoriteMovies.ViewModels"
     xmlns:ct="clr-namespace:FavoriteMovies.Controls"
     x:Class="FavoriteMovies.Pages.FavoritePage"
-    Title="FavoritePage">
+    Title="FavoritePage"
+    BackgroundImageSource="img.jpg">
 
     <ContentPage.Behaviors>
         <toolkit:EventToCommandBehavior
@@ -18,6 +19,7 @@
             <ct:CustomLoaderControl
                 Message="Este proceso puede tomar unos segundos"
                 MessageSize="30"
+                 BackgroundColor="White"
                 IsVisible="{Binding IsBusy}" />
                 
                 
@@ -25,8 +27,10 @@
             <CollectionView 
                 ItemsSource="{Binding Favorites}"
                 IsVisible="{Binding IsBusy, Converter={StaticResource invertBoolConverter}}"
+                SelectedItem="{Binding SelectedMovie}"
+                SelectionMode="Single"
                 Margin="10"
-                 HeightRequest="600">
+                HeightRequest="900">
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -42,7 +46,7 @@
                             <Grid ColumnDefinitions="0.3*,0.7*">
                                 <Image 
                                     Grid.Column="0"
-                                    Source="{Binding Poster_Path}"
+                                    Source="{Binding FullPosterPath}"
                                     Aspect="AspectFill"
                                     HeightRequest="150"
                                     WidthRequest="100" />
@@ -66,11 +70,8 @@
                                             FontSize="Small" 
                                             TextColor="Gray" />
 
-                                        <!-- <Label 
-                                            Text="{Binding Vote_Average, StringFormat='⭐ {0:F1}'}" 
-                                            FontSize="Small" 
-                                            TextColor="Goldenrod" /> -->
-                                            <ct:MovieRatingControl Rating="{Binding UserRating}" />
+                                        
+                                            <ct:MovieRatingControl Rating="{Binding UserRating, Mode=TwoWay}" />
 
                                     </HorizontalStackLayout>
                                 </VerticalStackLayout>

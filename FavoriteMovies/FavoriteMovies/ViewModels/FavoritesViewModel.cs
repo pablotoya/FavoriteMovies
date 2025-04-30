@@ -33,12 +33,7 @@ public partial class FavoritesViewModel : ObservableObject
         IsBusy = false;
 
     }
-
-    private int _userRating;
-    public int UserRating
-    {
-        get => _userRating;
-        set => SetProperty(ref _userRating, value); // si usas CommunityToolkit o INotifyPropertyChanged
-    }
+   
+  
 
 }
