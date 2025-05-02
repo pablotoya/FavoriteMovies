@@ -69,6 +69,7 @@
 
 	<ItemGroup>
 	  <Folder Include="Converts\" />
+	  <Folder Include="Extensions\" />
 	  <Folder Include="Models\" />
 	</ItemGroup>
 

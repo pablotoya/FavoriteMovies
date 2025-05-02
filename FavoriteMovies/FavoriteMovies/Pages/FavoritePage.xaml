@@ -1,4 +1,4 @@
-<ContentPage 
+<!-- <ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
@@ -19,16 +19,14 @@
             <ct:CustomLoaderControl
                 Message="Este proceso puede tomar unos segundos"
                 MessageSize="30"
-                 BackgroundColor="White"
+                
                 IsVisible="{Binding IsBusy}" />
                 
                 
             
             <CollectionView 
                 ItemsSource="{Binding Favorites}"
-                IsVisible="{Binding IsBusy, Converter={StaticResource invertBoolConverter}}"
-                SelectedItem="{Binding SelectedMovie}"
-                SelectionMode="Single"
+                IsVisible="{Binding IsBusy, Converter={StaticResource invertBoolConverter}}"              
                 Margin="10"
                 HeightRequest="900">
 
@@ -38,7 +36,7 @@
                             Stroke="LightGray"
                             StrokeThickness="1"
                             StrokeShape="RoundRectangle 10"
-                            BackgroundColor="White"
+                            
                             Padding="10"
                             Margin="5">
                             
@@ -56,22 +54,24 @@
                                         Text="{Binding Original_Title}" 
                                         FontAttributes="Bold"
                                         FontSize="Medium" 
-                                        LineBreakMode="TailTruncation" />
+                                        LineBreakMode="TailTruncation" 
+                                        TextColor="white"/>
 
                                     <Label 
                                         Text="{Binding Overview}" 
                                         FontSize="Small"
                                         LineBreakMode="TailTruncation"
-                                        MaxLines="3" />
+                                        MaxLines="3" 
+                                        TextColor="White"/>
 
                                     <HorizontalStackLayout Spacing="10">
                                         <Label 
                                             Text="{Binding Release_Date}" 
                                             FontSize="Small" 
-                                            TextColor="Gray" />
+                                            TextColor="white" />
 
                                         
-                                            <ct:MovieRatingControl Rating="{Binding UserRating, Mode=TwoWay}" />
+                                            <ct:MovieRatingControl Rating="{Binding UserRating}" />
 
                                     </HorizontalStackLayout>
                                 </VerticalStackLayout>
@@ -83,5 +83,83 @@
             </CollectionView>
         </Grid>
     </VerticalStackLayout>
+
+</ContentPage> -->
+
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:FavoriteMovies.ViewModels"
+    xmlns:ct="clr-namespace:FavoriteMovies.Controls"
+    x:Class="FavoriteMovies.Pages.FavoritePage"
+    Title="Películas Favoritas"
+    BackgroundImageSource="img.jpg">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding LoadDataMoviesCommand}" />
+    </ContentPage.Behaviors>
+
+    <Grid>
+        <!-- Loader -->
+        <ct:CustomLoaderControl
+            Message="Este proceso puede tomar unos segundos"
+            MessageSize="30"
+            IsVisible="{Binding IsBusy}" />
+
+        <!-- Vista tipo galería -->
+        <CollectionView 
+            ItemsSource="{Binding Favorites}"
+            IsVisible="{Binding IsBusy, Converter={StaticResource invertBoolConverter}}"
+            Margin="10"
+            ItemsLayout="VerticalGrid, 2"
+            SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Stroke="LightGray"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 12"
+                        
+                        Margin="5"
+                        Padding="0">
+
+                        <VerticalStackLayout>
+                            <!-- Imagen -->
+                            <Image 
+                                Source="{Binding FullPosterPath}"
+                                Aspect="AspectFill"
+                                HeightRequest="220"
+                                 />
+
+                            <!-- Título -->
+                            <Label 
+                                Text="{Binding Original_Title}" 
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                Padding="8,4,8,0"
+                                LineBreakMode="TailTruncation"
+                                TextColor="white" />
+
+                            <!-- Fecha -->
+                            <Label 
+                                Text="{Binding Release_Date}" 
+                                FontSize="Small"
+                                Padding="8,0,8,0"
+                                TextColor="Gray" />
+
+                            <!-- Rating -->
+                            <HorizontalStackLayout Padding="8,4,8,8" Spacing="5">
+                                <ct:MovieRatingControl Rating="{Binding UserRating}" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 
 </ContentPage>

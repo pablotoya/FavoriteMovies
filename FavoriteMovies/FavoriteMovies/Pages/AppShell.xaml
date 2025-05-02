@@ -5,7 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pg="clr-namespace:FavoriteMovies.Pages"
     Shell.FlyoutBehavior="Flyout"
-    Title="FavoriteMovies">
+    Title="FavoriteMovies"
+    Shell.NavBarHasShadow="False"
+    Shell.BackgroundColor="#6200EE"
+    Shell.TitleColor="White"
+    Shell.ForegroundColor="White">
+
+    
 
     <ShellContent
         Title="Home"

@@ -32,7 +32,7 @@ namespace FavoriteMovies.Models
         [JsonPropertyName("poster_path")]
         public string? Poster_Path { get; set; }
         
-        public string FullPosterPath => $"https://image.tmdb.org/t/p/w500{Poster_Path}";
+        public string? FullPosterPath { get; set; }
 
 
         [JsonPropertyName("release_date")]
