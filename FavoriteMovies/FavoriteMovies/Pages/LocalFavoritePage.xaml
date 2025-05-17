@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FavoriteMovies.Pages.LocalFavoritePage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:FavoriteMovies.ViewModels"
+             xmlns:ct="clr-namespace:FavoriteMovies.Controls"
+             Title="Favoritas"
+             BackgroundColor="#121212">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            EventName="Appearing"
+            Command="{Binding LoadDataFavoritesCommand}"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.BindingContext>
+        <vm:LocalFavoritesViewModel/>
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout>
+        <Grid>
+            <ct:CustomLoaderControl IsVisible="{Binding IsBusy}" />
+
+            <CollectionView ItemsSource="{Binding Favorites}"
+                            >
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            Stroke="Gray"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10"
+                            Margin="5"
+                            Padding="10"
+                            BackgroundColor="#1e1e1e">
+
+                            <Grid ColumnDefinitions="120, *" RowDefinitions="Auto, Auto">
+                                <!-- Imagen -->
+                                <Image Grid.RowSpan="2"
+                                       Source="{Binding FullPosterPath}"
+                                       Aspect="AspectFill"
+                                       HeightRequest="180"
+                                       WidthRequest="120"
+                                       Margin="0,0,10,0"/>
+
+                                <!-- Título -->
+                                <Label Grid.Column="1"
+                                       Text="{Binding Title}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="White"
+                                       LineBreakMode="TailTruncation"/>
+
+                                <!-- Detalles -->
+                                <VerticalStackLayout Grid.Column="1" Grid.Row="1" Spacing="4">
+                                    <Label Text="{Binding Release_Date}" FontSize="12" TextColor="LightGray"/>
+                                    <Label Text="{Binding Overview}" 
+                                           FontSize="13" 
+                                           TextColor="White"
+                                           MaxLines="4"
+                                           LineBreakMode="TailTruncation"/>
+
+                                    <Label Text="Vista general" 
+                                           FontAttributes="Bold" 
+                                           FontSize="14"
+                                           TextColor="White"/>
+
+                                    <!-- Valoración del usuario -->
+                                    <ct:MovieRatingControl Rating="{Binding UserRating}" />
+
+                                    <!-- Popularidad y votos -->
+                                    <HorizontalStackLayout Spacing="15">
+                                        <Label Text="⭐ Popularidad:" FontSize="12" TextColor="LightGray"/>
+                                        <Label Text="{Binding Popularity}" FontSize="12" TextColor="White"/>
+                                        <Label Text="Votos:" FontSize="12" TextColor="LightGray"/>
+                                        <Label Text="{Binding Vote_Count}" FontSize="12" TextColor="White"/>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

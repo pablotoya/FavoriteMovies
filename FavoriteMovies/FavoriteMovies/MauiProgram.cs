@@ -24,10 +24,14 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddSingleton<IFavoriteRepository, FavoriteRepository>();
+		builder.Services.AddSingleton<IFavoriteRealmRepository, FavoriteRealmRepository>();
 		builder.Services.AddSingleton<IResponseService, ResponseService>();
+		builder.Services.AddSingleton<IContextDataBase, ContextDataBase>();
 
 		builder.Services.AddTransient<FavoritesViewModel>();
-		builder.Services.AddTransient<FavoritePage>();
+		builder.Services.AddTransient<LocalFavoritesViewModel>();
+		builder.Services.AddTransient<DetailFavoriteViewModel>();
+		
 
 #if DEBUG
 		builder.Logging.AddDebug();

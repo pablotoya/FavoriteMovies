@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Flyout"
     Title="FavoriteMovies"
     Shell.NavBarHasShadow="False"
-    Shell.BackgroundColor="#6200EE"
+    Shell.BackgroundColor="#273746"
     Shell.TitleColor="White"
     Shell.ForegroundColor="White">
 
@@ -17,5 +17,10 @@
         Title="Home"
         ContentTemplate="{DataTemplate pg:FavoritePage}"
         Route="FavoritePage" />
+
+        <ShellContent
+        Title="Local"
+        ContentTemplate="{DataTemplate pg:LocalFavoritePage}"
+        Route="LocalFavoritePage" />
 
 </Shell>
