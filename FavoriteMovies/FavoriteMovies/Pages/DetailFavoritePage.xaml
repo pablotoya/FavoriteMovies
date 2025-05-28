@@ -3,27 +3,107 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FavoriteMovies.Pages.DetailFavoritePage"
              xmlns:vm="clr-namespace:FavoriteMovies.ViewModels"
-             Title="DetailFavoritePage">
+             Title="{Binding Favorite.Title}"
+             BackgroundColor="#121212">
+
     <ContentPage.BindingContext>
         <vm:DetailFavoriteViewModel/>
     </ContentPage.BindingContext>
-     <ContentPage.ToolbarItems>
+
+    <ContentPage.ToolbarItems>
         <ToolbarItem
             Text="Guardar"
             Command="{Binding SaveCommand}">
             <ToolbarItem.IconImageSource>
                 <FontImageSource
-                    Glyph="&#xE80F;"
+                    Glyph="&#xE800;"
                     FontFamily="Iconfont"
-                    Color="Black"
+                    Color="White"
                     Size="30"/>
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
-    <VerticalStackLayout>
-        <Label 
-            Text="{Binding Favorite.Title}"
-            VerticalOptions="Center"
-            Style="{StaticResource LabelCustom}"/>
-    </VerticalStackLayout>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Póster -->
+            <Grid>
+                <Image Source="{Binding Favorite.FullPosterPath}"
+                       HeightRequest="400"
+                       Aspect="AspectFill"/>
+            </Grid>
+
+            <!-- Título -->
+            <Label Text="{Binding Favorite.Title}"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center"/>
+
+            <!-- Subtítulo original -->
+            <Label Text="{Binding Favorite.Original_Title, StringFormat='Título original: {0}'}"
+                   FontSize="14"
+                   TextColor="LightGray"
+                   HorizontalOptions="Center"/>
+
+            <!-- Sección: Detalles -->
+            <Label Text="🎬 Detalles"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   Margin="0,20,0,0"/>
+
+            <Label Text="{Binding Favorite.Release_Date, StringFormat='📅 Estreno: {0}'}"
+                   FontSize="14"
+                   TextColor="LightGray"/>
+
+            <Label Text="{Binding Favorite.Original_Language, StringFormat='🗣 Idioma original: {0}'}"
+                   FontSize="14"
+                   TextColor="LightGray"/>
+
+            <Label Text="{Binding Favorite.Adult, StringFormat='🔞 Para adultos: {0}'}"
+                   FontSize="14"
+                   TextColor="LightGray"/>
+
+            <Label Text="{Binding Favorite.Video, StringFormat='🎞 ¿Es video?: {0}'}"
+                   FontSize="14"
+                   TextColor="LightGray"/>
+
+            <!-- Vista general -->
+            <Label Text="📝 Sinopsis"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   Margin="0,20,0,0"/>
+
+            <Label Text="{Binding Favorite.Overview}"
+                   FontSize="14"
+                   TextColor="White"
+                   LineBreakMode="WordWrap"/>
+
+            <!-- Sección: Estadísticas -->
+            <Label Text="📊 Estadísticas"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   Margin="0,20,0,0"/>
+
+            <HorizontalStackLayout Spacing="20">
+                <Label Text="{Binding Favorite.Vote_Average, StringFormat='⭐ Calificación: {0:F1}'}"
+                       FontSize="14"
+                       TextColor="LightGreen"/>
+                <Label Text="{Binding Favorite.Vote_Count, StringFormat='🗳 Votos: {0}'}"
+                       FontSize="14"
+                       TextColor="LightGray"/>
+            </HorizontalStackLayout>
+
+            <Label Text="{Binding Favorite.Popularity, StringFormat='🔥 Popularidad: {0:F1}'}"
+                   FontSize="14"
+                   TextColor="Orange"/>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>

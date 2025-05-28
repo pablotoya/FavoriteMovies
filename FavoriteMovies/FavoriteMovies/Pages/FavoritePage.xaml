@@ -9,16 +9,18 @@
     Title="Películas Favoritas"
     BackgroundImageSource="img.jpg">
 
-
     <ContentPage.Behaviors>
         <toolkit:EventToCommandBehavior
             EventName="Appearing"
             Command="{Binding LoadDataMoviesCommand}" />
     </ContentPage.Behaviors>
 
+    
+
     <Grid>
         <!-- Loader -->
         <ct:CustomLoaderControl
+            
             Message="Este proceso puede tomar unos segundos"
             MessageSize="30"
             IsVisible="{Binding IsBusy}" />

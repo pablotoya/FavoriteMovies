@@ -21,6 +21,8 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+				fonts.AddFont("Cinzel-Regular.ttf", "CinzelRegular");
+				fonts.AddFont("fontello.ttf", "Iconfont");
 			});
 
 		builder.Services.AddSingleton<IFavoriteRepository, FavoriteRepository>();
@@ -36,10 +38,11 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+
 		var app = builder.Build();
 
 		Startup.ServicesProvider = app.Services;
 
-		return app;
+		return builder.Build();
 	}
 }

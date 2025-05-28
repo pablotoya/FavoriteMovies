@@ -6,7 +6,7 @@
              xmlns:vm="clr-namespace:FavoriteMovies.ViewModels"
              xmlns:ct="clr-namespace:FavoriteMovies.Controls"
              Title="Favoritas"
-             BackgroundColor="#121212">
+             >
 
     <ContentPage.Behaviors>
         <toolkit:EventToCommandBehavior

@@ -55,19 +55,6 @@ public partial class FavoritesViewModel : ObservableObject
         await Shell.Current.GoToAsync(nameof(DetailFavoritePage), true, parameters);
     }
 
-    [RelayCommand]
-    public async Task ChangeTheme()
-    {
-        var currentTheme = Application.Current.RequestedTheme;
-        if (currentTheme == AppTheme.Light)
-        {
-            Application.Current.UserAppTheme = AppTheme.Dark;
-        }
-        else
-        {
-            Application.Current.UserAppTheme = AppTheme.Light;
-        }
-    }
    
 
 }

@@ -9,7 +9,9 @@
     Shell.NavBarHasShadow="False"
     Shell.BackgroundColor="#273746"
     Shell.TitleColor="White"
-    Shell.ForegroundColor="White">
+    Shell.ForegroundColor="White"
+    
+    >
 
     
 
