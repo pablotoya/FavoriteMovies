@@ -16,8 +16,8 @@ public class FavoriteEntity : RealmObject
         [MapTo("adult")]
         public bool Adult { get; set; }
 
-        [MapTo("backdrop_path")]     
-        public string? Backdrop_Path { get; set; }
+        // [MapTo("backdrop_path")]     
+        // public string? Backdrop_Path { get; set; }
 
 
         [MapTo("original_language")]
@@ -32,8 +32,8 @@ public class FavoriteEntity : RealmObject
         [MapTo("popularity")]
         public double Popularity { get; set; }
 
-        [MapTo("poster_path")]
-        public string? Poster_Path { get; set; }
+        // [MapTo("poster_path")]
+        // public string? Poster_Path { get; set; }
         
         public string? FullPosterPath { get; set; }
 
@@ -43,8 +43,8 @@ public class FavoriteEntity : RealmObject
         [MapTo("title")]
         public string? Title { get; set; }
 
-        [MapTo("video")]
-        public bool Video { get; set; }
+        // [MapTo("video")]
+        // public bool Video { get; set; }
 
         [MapTo("vote_average")]
         public double Vote_Average { get; set; }
@@ -52,6 +52,6 @@ public class FavoriteEntity : RealmObject
         [MapTo("vote_count")]
         public int Vote_Count { get; set; }
 
-        public int UserRating { get; set; }    
+        // public int UserRating { get; set; }    
         
 }

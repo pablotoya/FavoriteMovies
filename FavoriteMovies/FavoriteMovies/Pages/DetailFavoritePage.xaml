@@ -66,9 +66,7 @@
                    FontSize="14"
                    TextColor="LightGray"/>
 
-            <Label Text="{Binding Favorite.Video, StringFormat='🎞 ¿Es video?: {0}'}"
-                   FontSize="14"
-                   TextColor="LightGray"/>
+            
 
             <!-- Vista general -->
             <Label Text="📝 Sinopsis"

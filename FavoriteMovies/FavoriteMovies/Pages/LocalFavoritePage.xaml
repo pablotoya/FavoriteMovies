@@ -66,8 +66,7 @@
                                            FontSize="14"
                                            TextColor="White"/>
 
-                                    <!-- Valoración del usuario -->
-                                    <ct:MovieRatingControl Rating="{Binding UserRating}" />
+                                    
 
                                     <!-- Popularidad y votos -->
                                     <HorizontalStackLayout Spacing="15">

@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using FavoriteMovies.Extensions;
 using FavoriteMovies.Models;
 using FavoriteMovies.Repositories.Interfaces;
+using FavoriteMovies.validators;
 
 namespace FavoriteMovies.ViewModels;
 
@@ -25,10 +26,30 @@ public partial class DetailFavoriteViewModel : ObservableObject, IQueryAttributa
         Favorite = (FavoriteModel)query["favorite"];
     }
 
-    [RelayCommand]
+
+   [RelayCommand]
     public async Task Save()
     {
         var item = Favorite.ToEntity();
+
+        var validator = new FavoriteEntityValidator();
+        var result = validator.Validate(item);
+
+        if (!result.IsValid)
+        {
+            // Mostrar todos los errores en una sola alerta
+            var errores = string.Join("\n", result.Errors.Select(e => $"• {e.ErrorMessage}"));
+            await Shell.Current.DisplayAlert("Errores de validación", errores, "OK");
+            return;
+        }
+
+        _favoriteRealmRepository.SaveFavorite(item);
+
+
+        // Mostrar mensaje de éxito
+        await Shell.Current.DisplayAlert("✅ Éxito", "La película se guardó correctamente.", "OK");
     }
+
+
     
 }
