@@ -26,13 +26,7 @@ namespace FavoriteMovies.ViewModels
             _favoriteRealmRepository = Startup.GetService<IFavoriteRealmRepository>();
         }
 
-        // [RelayCommand]
-        // public async virtual Task LoadDataFavorites()
-        // {
-
-        //     var list = _favoriteRealmRepository.GetAllObjects();
-
-        // }
+     
 
         [RelayCommand]
 public async Task LoadDataFavorites()

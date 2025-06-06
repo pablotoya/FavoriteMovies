@@ -6,5 +6,7 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 		Routing.RegisterRoute(nameof(DetailFavoritePage), typeof(DetailFavoritePage));
+		Routing.RegisterRoute(nameof(FavoriteLocationPage), typeof(FavoriteLocationPage));
+		
 	}
 }

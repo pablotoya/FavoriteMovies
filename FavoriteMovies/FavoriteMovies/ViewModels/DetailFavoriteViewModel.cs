@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using FavoriteMovies.Extensions;
 using FavoriteMovies.Models;
+using FavoriteMovies.Pages;
 using FavoriteMovies.Repositories.Interfaces;
 using FavoriteMovies.validators;
 
@@ -27,7 +28,7 @@ public partial class DetailFavoriteViewModel : ObservableObject, IQueryAttributa
     }
 
 
-   [RelayCommand]
+    [RelayCommand]
     public async Task Save()
     {
         var item = Favorite.ToEntity();
@@ -49,6 +50,13 @@ public partial class DetailFavoriteViewModel : ObservableObject, IQueryAttributa
         // Mostrar mensaje de éxito
         await Shell.Current.DisplayAlert("✅ Éxito", "La película se guardó correctamente.", "OK");
     }
+
+    [RelayCommand]
+    private async Task ToShoulLocationAsync()
+    {
+        await Shell.Current.GoToAsync(nameof(FavoriteLocationPage));
+    }
+  
 
 
     

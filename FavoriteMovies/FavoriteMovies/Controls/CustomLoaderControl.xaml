@@ -11,6 +11,7 @@
             <Label
                 HorizontalTextAlignment="Center"
                 FontSize="{Binding MessageSize,Source={x:Reference Name=cvLoader}}"
-                Text="{Binding Message,Source={x:Reference Name=cvLoader}}"/>
+                Text="{Binding Message,Source={x:Reference Name=cvLoader}}"
+                Style="{StaticResource LabelCustom}"/>
     </VerticalStackLayout>
 </ContentView>

@@ -100,6 +100,13 @@
                    FontSize="14"
                    TextColor="Orange"/>
 
+            <Button Text="📍 Ver en el mapa"
+                     BackgroundColor="#512BD4"
+                     TextColor="White"
+                     CornerRadius="10"
+                     FontAttributes="Bold"
+                     Padding="10"
+                     Command="{Binding ToShoulLocationCommand}" />
 
         </VerticalStackLayout>
     </ScrollView>

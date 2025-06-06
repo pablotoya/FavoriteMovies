@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:FavoriteMovies.Controls"
+             xmlns:vm="clr-namespace:FavoriteMovies.ViewModels"
+             x:Class="FavoriteMovies.Pages.FavoriteLocationPage"
+             Title="FavoriteLocationPage">
+
+    <ContentPage.BindingContext>
+        <vm:FavoriteLocationViewModel/>
+    </ContentPage.BindingContext>
+    
+            
+
+    <controls:CustomMapControl 
+        
+    Ubicacion="{Binding Ubicacion}"
+    Pines="{Binding Pins}"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill"
+    HeightRequest="300"/>
+    
+</ContentPage>
+
