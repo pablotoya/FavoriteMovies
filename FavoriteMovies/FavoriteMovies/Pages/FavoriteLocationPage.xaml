@@ -8,17 +8,13 @@
 
     <ContentPage.BindingContext>
         <vm:FavoriteLocationViewModel/>
-    </ContentPage.BindingContext>
-    
-            
+    </ContentPage.BindingContext>       
 
     <controls:CustomMapControl 
         
-    Ubicacion="{Binding Ubicacion}"
-    Pines="{Binding Pins}"
-    HorizontalOptions="Fill"
-    VerticalOptions="Fill"
-    HeightRequest="300"/>
+        Ubicacion="{Binding Ubicacion}"
+        Pines="{Binding Pines}"
+    />
     
 </ContentPage>
 

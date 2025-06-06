@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FavoriteMovies.ViewModels
 {
+    
     public partial class FavoriteLocationViewModel : ObservableObject
     {
         [ObservableProperty]
@@ -16,7 +17,7 @@ namespace FavoriteMovies.ViewModels
 
         public FavoriteLocationViewModel()
         {
-            Pins = new ObservableCollection<Pin>();
+            
             ToLocalFavorite();
            
         }
@@ -25,7 +26,7 @@ namespace FavoriteMovies.ViewModels
             try
             {
 
-                var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+               
 
                 var location = await Geolocation.GetLocationAsync(new GeolocationRequest(GeolocationAccuracy.Medium));
                 if (location != null)
@@ -36,7 +37,8 @@ namespace FavoriteMovies.ViewModels
                     {
                         Label = "Ubicacion Actual",
                         Address = "Tu Ubicacion actual",
-                        Location = Ubicacion
+                        Location = Ubicacion,
+                        Type = PinType.Place
 
                     };
                     Pins.Add(pin);

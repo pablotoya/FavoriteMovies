@@ -9,7 +9,7 @@ namespace FavoriteMovies.Controls;
 
 public partial class CustomMapControl : ContentView
 {
-	 public static readonly BindableProperty UbicacionProperty =
+    public static readonly BindableProperty UbicacionProperty =
         BindableProperty.Create(nameof(Ubicacion), typeof(Location), typeof(CustomMapControl), null, propertyChanged: OnUbicacionChanged);
 
     public static readonly BindableProperty PinesProperty =
@@ -21,9 +21,8 @@ public partial class CustomMapControl : ContentView
     {
         _map = new Map
         {
-            
             IsShowingUser = true,
-            MapType = MapType.Satellite
+            MapType = MapType.Street
         };
 
         Content = _map;

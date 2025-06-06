@@ -23,4 +23,5 @@
         ContentTemplate="{DataTemplate pg:LocalFavoritePage}"
         Route="LocalFavoritePage" />
 
+        
 </Shell>

@@ -44,7 +44,7 @@
                                        WidthRequest="120"
                                        Margin="0,0,10,0"/>
 
-                                <!-- Título -->
+                                
                                 <Label Grid.Column="1"
                                        Text="{Binding Title}"
                                        FontSize="18"
@@ -52,7 +52,7 @@
                                        TextColor="White"
                                        LineBreakMode="TailTruncation"/>
 
-                                <!-- Detalles -->
+                                
                                 <VerticalStackLayout Grid.Column="1" Grid.Row="1" Spacing="4">
                                     <Label Text="{Binding Release_Date}" FontSize="12" TextColor="LightGray"/>
                                     <Label Text="{Binding Overview}" 
@@ -68,7 +68,7 @@
 
                                     
 
-                                    <!-- Popularidad y votos -->
+                                    
                                     <HorizontalStackLayout Spacing="15">
                                         <Label Text="⭐ Popularidad:" FontSize="12" TextColor="LightGray"/>
                                         <Label Text="{Binding Popularity}" FontSize="12" TextColor="White"/>

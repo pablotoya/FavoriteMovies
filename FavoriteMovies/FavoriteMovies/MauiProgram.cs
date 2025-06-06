@@ -18,8 +18,8 @@ public static class MauiProgram
 			.UseMauiCommunityToolkit()
 			.UseMauiApp<App>()
 			.UseMauiMaps()
-			
-			
+
+
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -28,7 +28,7 @@ public static class MauiProgram
 				fonts.AddFont("fontello.ttf", "Iconfont");
 			});
 
-		
+
 		builder.Services.AddSingleton<IFavoriteRepository, FavoriteRepository>();
 		builder.Services.AddSingleton<IFavoriteRealmRepository, FavoriteRealmRepository>();
 		builder.Services.AddSingleton<IResponseService, ResponseService>();
@@ -37,7 +37,7 @@ public static class MauiProgram
 		builder.Services.AddTransient<FavoritesViewModel>();
 		builder.Services.AddTransient<LocalFavoritesViewModel>();
 		builder.Services.AddTransient<DetailFavoriteViewModel>();
-		builder.Services.AddTransient<FavoriteLocationViewModel>();
+		builder.Services.AddTransient < FavoriteLocationViewModel>();
 		
 		
 

@@ -29,31 +29,31 @@ namespace FavoriteMovies.ViewModels
      
 
         [RelayCommand]
-public async Task LoadDataFavorites()
-{
-    try
-    {
-        IsBusy = true;
-        
-        // Obtener datos de Realm
-        var realmEntities = _favoriteRealmRepository.GetAllObjects().ToList();
-        
-        // Convertir cada entidad a modelo
-        var models = realmEntities.Select(entity => entity.ToModel()).ToList();
-        
-        // Asignar a la colección observable
-        Favorites = new ObservableCollection<FavoriteModel>(models);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error cargando favoritos: {ex.Message}");
-        // Puedes mostrar un mensaje al usuario aquí
-    }
-    finally
-    {
-        IsBusy = false;
-    }
-}
+        public async Task LoadDataFavorites()
+        {
+            try
+            {
+                IsBusy = true;
+                
+                
+                var realmEntities = _favoriteRealmRepository.GetAllObjects().ToList();
+                
+                
+                var models = realmEntities.Select(entity => entity.ToModel()).ToList();
+                
+                
+                Favorites = new ObservableCollection<FavoriteModel>(models);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error cargando favoritos: {ex.Message}");
+                
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
         
     }
 }

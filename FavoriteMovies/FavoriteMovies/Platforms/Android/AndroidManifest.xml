@@ -5,7 +5,7 @@
 	 android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true">
 	<meta-data
 			android:name="com.google.android.geo.API_KEY"
-			android:value="AIzaSyBmx1t82OCom8RMHs6fC41pw-CuPdd2GM4" /></application>
+			android:value="AIzaSyArt7BUb0zvp2CRkw2k5wjvyOvrzfEZ1JE" /></application>
 			
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />

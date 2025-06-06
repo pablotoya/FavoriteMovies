@@ -10,17 +10,20 @@ namespace FavoriteMovies.validators
     public class FavoriteEntityValidator : AbstractValidator<FavoriteEntity>
     {
         public FavoriteEntityValidator()
-    {
-        RuleFor(x => x.Title)
-            .NotEmpty().WithMessage("El título es obligatorio.");
+        {
+            RuleFor(x => x.Title)
+                .NotEmpty().WithMessage("El título es obligatorio.");
 
-        RuleFor(x => x.Popularity)
-            .GreaterThan(0).WithMessage("El ID debe ser mayor que 0.");
+            RuleFor(x => x.Popularity)
+                .GreaterThan(0).WithMessage("La Popularidad es obligatoria.");
 
-        RuleFor(x => x.FullPosterPath)
-            .NotEmpty().WithMessage("La imagen es obligatoria.");
+            RuleFor(x => x.FullPosterPath)
+                .NotEmpty().WithMessage("La imagen es obligatoria.");
+            
+            RuleFor(x => x.Original_Language)
+            .NotEmpty().WithMessage("El idioma es obligatorio.");
 
-        // Agrega más validaciones si lo necesitas
+        
     }
     }
 }

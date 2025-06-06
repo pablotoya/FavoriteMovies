@@ -38,7 +38,7 @@ public partial class DetailFavoriteViewModel : ObservableObject, IQueryAttributa
 
         if (!result.IsValid)
         {
-            // Mostrar todos los errores en una sola alerta
+            
             var errores = string.Join("\n", result.Errors.Select(e => $"• {e.ErrorMessage}"));
             await Shell.Current.DisplayAlert("Errores de validación", errores, "OK");
             return;
@@ -47,7 +47,7 @@ public partial class DetailFavoriteViewModel : ObservableObject, IQueryAttributa
         _favoriteRealmRepository.SaveFavorite(item);
 
 
-        // Mostrar mensaje de éxito
+        
         await Shell.Current.DisplayAlert("✅ Éxito", "La película se guardó correctamente.", "OK");
     }
 

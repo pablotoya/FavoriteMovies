@@ -18,14 +18,14 @@
     
 
     <Grid>
-        <!-- Loader -->
+        
         <ct:CustomLoaderControl
             Message="Este proceso puede tomar unos segundos"
             MessageSize="30"
             IsVisible="{Binding IsBusy}" 
             />
 
-        <!-- Vista tipo galería -->
+        
         <CollectionView 
             ItemsSource="{Binding Favorites}"
             IsVisible="{Binding IsBusy, Converter={StaticResource invertBoolConverter}}"
@@ -45,7 +45,7 @@
                         Padding="0">
 
                         <VerticalStackLayout>
-                            <!-- Imagen -->
+                            
                             <Image 
                                 Source="{Binding FullPosterPath}"
                                 Aspect="AspectFill"
@@ -58,7 +58,7 @@
                             </Image>
 
 
-                            <!-- Título -->
+                           
                             <Label 
                                 Text="{Binding Original_Title}" 
                                 FontAttributes="Bold"
@@ -67,14 +67,14 @@
                                 LineBreakMode="TailTruncation"
                                 TextColor="white" />
 
-                            <!-- Fecha -->
+                            
                             <Label 
                                 Text="{Binding Release_Date}" 
                                 FontSize="Small"
                                 Padding="8,0,8,0"
                                 TextColor="Gray" />
 
-                            <!-- Rating -->
+                          
                             <HorizontalStackLayout Padding="8,4,8,8" Spacing="5">
                                 <ct:MovieRatingControl Rating="{Binding UserRating}" />
                             </HorizontalStackLayout>

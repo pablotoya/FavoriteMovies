@@ -27,27 +27,26 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
-            <!-- Póster -->
+           
             <Grid>
                 <Image Source="{Binding Favorite.FullPosterPath}"
                        HeightRequest="400"
                        Aspect="AspectFill"/>
             </Grid>
 
-            <!-- Título -->
             <Label Text="{Binding Favorite.Title}"
                    FontSize="28"
                    FontAttributes="Bold"
                    TextColor="White"
                    HorizontalOptions="Center"/>
 
-            <!-- Subtítulo original -->
+            
             <Label Text="{Binding Favorite.Original_Title, StringFormat='Título original: {0}'}"
                    FontSize="14"
                    TextColor="LightGray"
                    HorizontalOptions="Center"/>
 
-            <!-- Sección: Detalles -->
+            
             <Label Text="🎬 Detalles"
                    FontSize="18"
                    FontAttributes="Bold"
@@ -68,7 +67,7 @@
 
             
 
-            <!-- Vista general -->
+            
             <Label Text="📝 Sinopsis"
                    FontSize="18"
                    FontAttributes="Bold"
@@ -80,7 +79,7 @@
                    TextColor="White"
                    LineBreakMode="WordWrap"/>
 
-            <!-- Sección: Estadísticas -->
+            
             <Label Text="📊 Estadísticas"
                    FontSize="18"
                    FontAttributes="Bold"
